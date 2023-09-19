@@ -1,0 +1,42 @@
+.row{
+    display: flex;
+}
+#game{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    background: aquamarine;
+    width: 500px;
+}
+
+.square{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    color: black;
+    font-size: 70px;
+    text-align: center;
+    vertical-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    background: gold;
+    border-radius: 10px;
+    opacity: .8;
+}
+
+#reset{
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+    font-size: x-large;
+}

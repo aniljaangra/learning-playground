@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+<div id="app">
+    <h1>Image Slider</h1>
+    <div>
+        Image slider in Vanilla JavaScript
+    </div>
+    <button class="button" onclick="handleButtonClick('back')"><</button>
+    <img
+            class="image active"
+            src="https://images.unsplash.com/photo-1561984142-7fabd0b4c9b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+    />
+    <img
+            class="image hidden"
+            src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1260&q=80"
+    />
+    <img
+            class="image hidden"
+            src="https://images.unsplash.com/photo-1494434546761-dbaf3c72feea?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+    />
+    <img
+            class="image hidden"
+            src="https://images.unsplash.com/photo-1519677194310-7b6f32e6446f?ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80"
+    />
+    <img
+            class="image hidden"
+            src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=939&q=80"
+    />
+    <img
+            class="image hidden"
+            src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1287&q=80"
+    />
+    <!-- Add more images here if needed -->
+    <button class="button" onclick="handleButtonClick('forward')">></button>
+</div>
+
+<script>
+  const app = document.getElementById("app");
+
+  /**Get all the images with class "image" */
+  const images = document.querySelectorAll(".image");
+  const imgSrc = Array.from(images).map((img) => img.src);
+
+  /**Handle the back and forward button clicks */
+  let currentImgIndex = 0;
+  var handleButtonClick = (direction) => {
+    const totalImages = imgSrc.length;
+    let currentImg = images[currentImgIndex];
+
+    // Hide the current image
+    currentImg.classList.add("hidden");
+    currentImg.classList.remove("active");
+
+    if (direction === "forward") {
+      currentImgIndex = (currentImgIndex + 1) % totalImages;
+    } else if (direction === "back") {
+      currentImgIndex = (currentImgIndex - 1 + totalImages) % totalImages;
+    }
+
+    currentImg = images[currentImgIndex];
+    currentImg.classList.remove("hidden");
+    currentImg.classList.add("active");
+  };
+</script>
+</body>
+</html>
